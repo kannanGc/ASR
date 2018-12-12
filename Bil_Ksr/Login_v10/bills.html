@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Light, Basic Header</title>
+	
+	<script type="text/javascript" src="js/constants.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
+
+	 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+
+
+
+	<link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.foundation.min.css">
+    
+   <!--  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
+    
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+</head>
+
+<body>
+    <h3>CUSTOMER BILLS</h3>
+<table id="myTable">
+ <thead>
+            <tr>
+                <th>id</th>
+                <th>customer_name</th>
+                <th>billamount</th>
+                <th>customeramount</th>
+                <th>discountpercentage</th>
+            </tr>
+        </thead>
+        <tbody id="dataTblBody">
+            
+        </tbody>
+</table>
+<script type="text/javascript">
+    $.ajax({
+      url: "http://localhost:8081/api/getAllBills",
+      type:"GET",
+      cors: true,
+      success: function(resultData){
+        for(var i=0;i<resultData.length;i++){
+            $("#dataTblBody").append("<tr><td>"+resultData[i].id+"</td><td>"+resultData[i].customer_name +"</td><td>"+resultData[i].billamount+"</td><td>"+resultData[i].customeramount+"</td><td>"+resultData[i].discountpercentage+"</td></tr>")
+        }
+        $('#myTable').DataTable( {
+    } );
+                
+      },
+      failure: function(resultData){
+        console.log(resultData) 
+      }
+      });
+      
+    
+		     
+	</script>
+
+
+</body>
+
+</html>

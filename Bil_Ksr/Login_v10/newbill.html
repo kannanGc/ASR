@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Light, Basic Header</title>
+	<script src="js/jquery.js"></script>	
+	<script type="text/javascript" src="js/constants.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
+<script src="js/notify.js"></script>
+	  
+<!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'> -->
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js'></script> -->
+
+
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<style>
+
+.buttonHolder{
+  position: absolute;
+  bottom: 15px;
+}
+
+.buttonHolder button{
+   padding: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.balance{
+        width: 340px;
+    float: right;
+    top: 33px;
+}
+.balance span{
+    color:black;
+}
+.add{
+        background: #827ffe;
+    margin-top: 25px;
+    margin-left: 9px;
+    padding: 0px;
+    color:white;
+    width: 157px;
+    padding:5px;
+        border-radius: 10px;
+}
+.generateBill{
+    width: 157px;   
+}
+tr th{
+    color: white;
+
+}
+.remove{
+        background: red;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 30px;
+    color: white;
+}
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  /*overflow: hidden;*/
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+table input{
+    width: 160px;
+    background: transparent;
+    /*height: 33px;*/
+}
+table input:focus{
+        background: lightgrey;
+    border-radius: 6px;
+    padding: 5px;
+}
+table * {
+  position: relative;
+}
+table td, table th {
+  padding-left: 8px;
+}
+table thead tr {
+  height: 60px;
+  background: #36304a;
+}
+table tbody tr {
+  height: 50px;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td, table th {
+  text-align: left;
+  border: 1px solid grey;
+}
+table td.l, table th.l {
+  text-align: right;
+}
+table td.c, table th.c {
+  text-align: center;
+}
+table td.r, table th.r {
+  text-align: center;
+}
+
+
+.table100-head th{
+  font-family: OpenSans-Regular;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+
+.customerName{
+    max-width: 520px;
+}
+
+.customerbill tbody {
+  /*display: block;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;*/
+}
+
+.customerbill thead,
+tbody tr {
+  /*display: table;
+  width: 100%;
+  table-layout: fixed;*/
+}
+
+
+
+tbody {
+    display:block;
+    height:300px;
+    overflow-y:scroll;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+}
+table {
+  /*width: 97%;*/
+}
+thead {
+    width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+</style>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+		     
+
+	</script>
+	 <script>
+        $(function() {
+
+ 	$("body").prepend(headerConstant);
+ 	$("body").append('<div id="jsGrid"></div>');
+
+        });
+    </script>
+
+
+	
+
+<div class="billholder">
+
+<!-- <div class="customerHolder">
+<span> Customer Name </span><span>  <div class="customerName wrap-input100 validate-input m-b-16"  data-validate = "data required">  <input type="text" class="input100 customer_name" id="cusName"></div></span>
+</div> -->
+
+<div class="newInvoice">
+    <table class="customerbill table100">
+        <thead>
+                    <tr>
+                        <th><span>Remove</span></th>
+                        <th><span>HSN Code</span></th>
+                        <th><span>Product Name</span></th>
+                        <th><span>Rate</span></th>
+                        <th><span>Quantity</span></th>
+                        <th><span>GST</span></th>
+                        <th><span>Price</span></th>
+                    </tr>
+         </thead>
+
+         <tbody class="billingTblBody">
+         
+         </tbody>
+    </table>
+    <table class="balance">
+                <tr>
+                    <th><span>Total</span></th>
+                    <td><span ><input type="text" disabled="true"  class="totalprice" ></span></td>
+                </tr>
+                <tr>
+                    <th><span>Discount in %</span></th>
+                        <td><span><input type="text" class="discountpercentage"  value="0"></span></td>
+                </tr>
+                <tr>
+                    <th><span>Balance Due</span></th>
+                    <td><span><input type="text" disabled="true" class="priceforcustomer"></span></td>
+
+                </tr>
+
+            </table>
+
+    <button type="button" class="add addRow">Add Row</button>
+  
+
+</div>
+
+</div>
+<div class="buttonHolder">
+      <button type="button" class="add generateBill" id="updatestock">Customer Bill</button>
+        <button type="button" class="add generateBill" id="quotation">Quotation</button>
+    <button type="button" class="add generateBill" id="taxinvoice">Tax Invoice</button>
+  </div>
+<script src="js/typehead.js"></script>    
+ <script src="js/billingnew.js"></script>    
+</body>
+
+</html>

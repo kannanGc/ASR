@@ -1,0 +1,86 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Invoice</title>
+		<link rel="stylesheet" href="css/billing.css">
+		<!-- <link rel="license" href="https://www.opensource.org/licenses/mit-license/"> -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		
+<script type="text/javascript" src="js/constants.js"></script>
+
+		<!-- Header CSS --> 
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- /Header CSS --> 
+
+
+	</head>
+	<body>
+		<script type="text/javascript">
+		      $(function(){ $("body").prepend(headerConstant); $(".addproduct").addClass('selected'); });
+
+	</script>
+		
+		<article>
+			<h1>Recipient</h1>
+			<address contenteditable>
+				<p>Some Company<br>c/o Some Guy</p>
+			</address>
+			<table class="meta">
+				<tr>
+					<th><span contenteditable>Invoice #</span></th>
+					<td><span contenteditable>101138</span></td>
+				</tr>
+				<tr>
+					<th><span contenteditable>Date</span></th>
+					<td><span contenteditable>January 1, 2012</span></td>
+				</tr>
+				<tr>
+					<th><span contenteditable>Amount Due</span></th>
+					<td><span id="prefix" contenteditable></span><span>600.00</span></td>
+				</tr>
+			</table>
+			<table class="inventory">
+				<thead>
+					<tr>
+						<th><span>S.No</span></th>
+						<th><span contenteditable>HSN Code</span></th>
+						<th><span contenteditable>Product Name</span></th>
+						<th><span contenteditable>Rate</span></th>
+						<th><span contenteditable>Quantity</span></th>
+						<th><span contenteditable>GST</span></th>
+						<th><span contenteditable>Price</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+			<a class="add">+</a>
+			<table class="balance">
+				<tr>
+					<th><span contenteditable>Total</span></th>
+					<td><span data-prefix></span><span class="totalprice" >600.00</span></td>
+				</tr>
+				<tr>
+					<th><span contenteditable>Discount in %</span></th>
+						<td><span data-prefix></span><span class="discountpercentage" contenteditable>0</span></td>
+				</tr>
+				<tr>s
+					<th><span contenteditable>Balance Due</span></th>
+					<td><span data-prefix></span><span class="priceforcustomer">600.00</span></td>
+
+				</tr>
+
+			</table>
+			<button class="login100-form-btn updatestock" id="updatestock" >Update Stock and Bill</button>
+		</article>
+
+		<script src="js/billing.js"></script>
+		<!-- <script src="js/billing_funcs.js"></script> -->
+		
+	</body>
+</html>

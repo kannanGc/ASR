@@ -1,0 +1,17 @@
+{
+    "development": {
+         "username": "root",
+        "password": "root",
+        "database": "asr_electricals",
+        "host": "localhost",
+        "driver": "mysql",
+        "multipleStatements": true,
+        "dialect": "mysql",
+        "appsecretkey": "^k)25_r.6JF%*f&K4N)YQd%ddSeD=N{pikTtz}=4=jO<zARd%MWrz'dr4/h`G?[",
+        "usagelogtable": "ReportUsage",
+        "exceptionlogfile": "./logs/reportexception.log",
+        "isAuthenticateRequired":false
+    },
+   
+    "production": {}
+}

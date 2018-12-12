@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Light, Basic Header</title>
+	<script src='js/jquery.js'></script>
+
+	<script type="text/javascript" src="js/constants.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
+
+	  <link rel='stylesheet prefetch' href='js/jsgrid/jsgrid.min.css'>
+
+<link rel='stylesheet prefetch' href='js/jsgrid/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='js/jsgrid/jsgridtheme.min.css'>
+
+<script src='js/jsgrid/jsgrid.min.js'></script>
+
+
+
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+		     
+
+	</script>
+	 <script>
+        $(function() {
+
+ 	$("body").prepend(headerConstant);
+ 	$("body").append('<div id="jsGrid"></div>');
+
+ 	 $(".allproduct").addClass('selected'); 
+
+            $("#jsGrid").jsGrid({
+                height: "70%",
+                width: "100%",
+                filtering: true,
+                editing: true,
+                inserting: true,
+                sorting: true,
+                paging: true,
+                autoload: true,
+                pageSize: 6,
+                pageButtonCount: 5,
+                deleteConfirm: "Do you really want to delete the client?",
+                controller: db,
+             
+
+               fields: [
+        { name: "id",title: "Product Code", type: "number", width: 50 },
+        { name: "product_name",title: "Product Name", type: "text", width: 150 },
+        { name: "company_name",title: "Company Name", type: "text", width: 50 },
+        { name: "pack_name",title: "Pack", type: "text", width: 50 },
+        { name: "product_group_name",title: "Group", type: "text", width: 50 },
+        { name: "wholesale_rate",title: "Wholesale rate", type: "number", width: 50 },
+        { name: "retail_rate",title: "Retail rate", type: "number", width: 50 },
+         { name: "stock_present",title: "Available Stock", type: "number", width: 50 },
+        { name: "alert",title: "Alert", type: "number", width: 50 },
+        { type: "control" }
+    ]
+            });
+
+        });
+    </script>
+
+
+	
+
+<script>
+	
+</script>
+
+
+
+</body>
+
+</html>

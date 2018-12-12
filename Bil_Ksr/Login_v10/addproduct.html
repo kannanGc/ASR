@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- Header CSS --> 
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- /Header CSS --> 
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/constants.js"></script>
+<script src="js/notify.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		      $(function(){ $("body").prepend(headerConstant); $(".addproduct").addClass('selected'); });
+
+	</script>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-51">
+						Add New Product
+					</span>
+
+					<!-- <span class="labelInput">
+						Code:
+					</span>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "data required">
+						<input class="input100" type="text" name="username" placeholder="Please enter code">
+						<span class="focus-input100"></span>
+					</div> -->
+
+
+			
+					<span class="labelInput">
+						Product Name:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<input id="productName" class="input100"  name="pass" placeholder="Please enter product name" >
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<span class="labelInput">
+						Company name:
+					</span>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "data required">
+						<input id="companyName" class="input100" type="text" name="username" placeholder="Please enter company name">
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+					 Pack:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<select id="pack" >
+						  <option value="1">Litre</option>
+						  <option value="2">Meter</option>
+						  <option value="3">Meter</option>
+						  <option value="4">Pack</option>
+						  <option value="5">Box</option>
+						  <option value="6">SQ ft</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+					 Product Group:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<select id="productGroup" >
+						  <option value="1">Plumbing</option>
+						  <option value="2">Electricals</option>
+						  <option value="3">General</option>
+						  
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+						GST Type:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<select id="gstType" >
+						  <option value="1">6%</option>
+						  <option value="2">12%</option>
+						  <option value="3">18%</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+						Wholesale rate:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<input id="wholesaleRate"  class="input100"  name="pass" placeholder="Please enter Price">
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+						Retail rate:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<input id="retailRate" class="input100"  name="pass" placeholder="Please enter Price" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="labelInput">
+						Alert:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<input  id="alert" class="input100"  name="pass" placeholder="Please enter Alert" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" id="submitAddProduct">
+							Add Product
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

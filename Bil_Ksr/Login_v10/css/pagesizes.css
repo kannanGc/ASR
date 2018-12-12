@@ -1,0 +1,208 @@
+ body {
+  background: rgb(204,204,204); 
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;  
+}
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+#pageContainer{
+      position: absolute;
+    }
+#headerForPage{
+     text-align: center;
+    top: 17px;
+    width: 793px;
+    position: relative;;
+}
+#leftbox{
+ width: 372px;
+    border: 1px solid black;
+    height: 290px;
+    position: absolute;
+    top: 75px;
+    left: 14px;
+}
+#rightbox{
+    width: 372px;
+    border: 1px solid black;
+    height: 290px;
+    position: absolute;
+    top: 75px;
+    left: 405px;
+}
+#detailsbox{
+  width: 761px;
+  border: 1px solid black;
+    height: 400px;
+    top: 379px;
+    position: absolute;
+    left: 16px;
+}
+#detailsboxCustomer{
+  width: 761px;
+  border: 1px solid black;
+    height: 400px;
+    top: auto;
+    left: 16px;
+}
+#taxbox{
+     width: 761px;
+    height: 100px;
+ 
+    top: 790px;
+    position: absolute;
+    left: 16px;
+}
+#taxbox th{
+border-right: 1px solid black;
+}
+#taxbox tr td{
+
+  border-bottom: 0px;
+  border-right: 1px solid black;
+}
+#taxbox tr:last-child td{
+  border-top: 1px solid black;
+}
+
+#taxtable{
+  border:1px solid black;
+}
+#declarationbox{
+    width: 761px;
+    height: 100px;
+    border: 1px solid black;
+    top: 940px;
+    position: absolute;
+    left: 16px;
+}
+
+    input{
+      border: none;
+    }
+    #sellerInfo{
+          border-bottom: 1px solid black;
+    }
+    #buyerInfo{
+      margin-top: 10px;
+    }
+    .rightTopBox{
+      border-bottom: 1px solid black;
+    }
+    .rightTopLeft{
+      border-right: 1px solid black;
+    }
+    .rightTopLeft,.rightTopRight{
+    width: 183px;
+    display: inline-block;
+    }
+    table {
+    border-collapse: collapse;
+    
+    }
+    tr{
+
+    }
+    th{
+      border-bottom: 1px solid black;
+    }
+    td,th{
+
+    }
+    td:last-child, th:last-child{
+      border-right: 0px;
+    }
+    .price{
+      border-top: 1px solid black
+    }
+.last{
+  position: absolute;
+  bottom: 0px;
+}
+.last td{
+  
+  border-bottom:0px solid black;
+}
+.line{
+      position: absolute;
+    height: 100%;
+    border-right: 1px solid black;
+}
+.line1{
+  left: 45px
+}
+.line2  {
+  left: 359px
+}
+.line3  {
+  left: 433px
+}
+.line4  {
+  left: 517px
+}
+.line5 {
+  left: 576px;
+}
+.line6 {
+  left: 615px;
+}
+.line7 {
+  left: 641px;
+}
+.line8 {
+  left: 692px;
+}
+.line9 {
+  left: 617px;
+}
+.line10 {
+  left: 617px;
+}
+
+.declaration{
+      width: 60%;
+    display: inline-block;
+    top: 53px;
+    position: absolute;
+}
+.signatory{
+    float: right;
+    }
+    .sign{
+      top: 78px;
+    position: absolute;
+    }

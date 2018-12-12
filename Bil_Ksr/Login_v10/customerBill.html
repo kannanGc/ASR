@@ -1,0 +1,67 @@
+<html>
+<body>
+<head>
+<link rel="stylesheet" href="css/pagesizes.css">
+    <style>
+   #sellerBoxCustomerBill{
+        margin-top: 25px;
+    text-align: center;
+   }
+  </style>
+</head>
+
+<page size="A4" id="a4s">
+  <div id="pageContainer">
+    <div id="headerForPage">Tax Invoice</div>
+    <div id="sellerBoxCustomerBill">
+      <div>
+        <div> ASR Electricals</div>
+        <div> address1</div>
+        <div> address2</div>
+        <div> Mayiladuthurai</div>
+        <div>609002</div>
+        <div>Phone:</div>
+      </div>
+    </div>
+    
+    <div id="detailsboxCustomer">
+      
+      <table>
+        <thead>
+        <tr>
+          <th>SI NO</th>
+          <th style="width: 313px">Descripton of Goods</th>
+          <th>HSN/SAC</th>
+          <th>GST RATE</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+          <th>Per</th>
+          <th>Disc %</th>
+          <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody id ="billBody">
+
+         
+          <tr class="last">
+            <td style="width: 46px"></td>
+            <td style="width: 316px">Total</td>
+            <td style="width: 75px"></td>
+            <td style="width: 83px"></td>
+            <td style="width: 65px"></td>
+            <td style="width: 35px"></td>
+            <td style="width: 27px"></td>
+            <td style="width: 53px"></td >
+            <td style="width: 60px" id="totalAmount">787877</td >
+          </tr>            
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</page>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/print.js"></script>
+</body>
+</html>

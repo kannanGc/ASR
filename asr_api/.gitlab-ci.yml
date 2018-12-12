@@ -1,0 +1,25 @@
+stages:
+ - deploy
+ - pushimagetohub
+deploy:
+  stage: deploy
+  tags: 
+   - deploy_qa
+  only:
+   - release
+  script:
+    - cp docker.test.env /tnq/data/AdhocReports/
+    - supervisorctl stop adhoc-api:adhoc-api_00
+    - docker rmi adhoc-api || true
+    - docker build -t adhoc-api .
+    - supervisorctl start adhoc-api:adhoc-api_00
+pushimagetohub:
+  stage: pushimagetohub
+  tags: 
+   - deploy_qa
+  only:
+   - release
+  script:
+    - $(aws ecr get-login --no-include-email --region us-east-1)
+    - docker tag adhoc-api:latest 296368725063.dkr.ecr.us-east-1.amazonaws.com/nimble_adhoc_reports_api
+    - docker push 296368725063.dkr.ecr.us-east-1.amazonaws.com/nimble_adhoc_reports_api
