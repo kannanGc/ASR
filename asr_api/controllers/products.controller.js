@@ -114,6 +114,8 @@ exports.insertProduct = function (req, res, next) {
 }
 
 
+
+
 /*
 Get tables 
 POST : /api/testasr
@@ -152,6 +154,134 @@ exports.generateBill = function (req, res, next) {
         if (err) return next(err, null);
 
         console.log(data);
+        res.send(data);
+        next();
+    });
+}
+
+/*
+Get tables 
+POST : /api/testasr
+*/
+exports.insertHSNCode = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("working");
+    var paramData = req.body;
+    console.log(paramData);
+    service.products.insertHSNCode(paramData,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+
+/*
+Get tables 
+POST : /api/testasr
+*/
+exports.insertCompanyName = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("working");
+    var paramData = req.body;
+    console.log(paramData);
+    service.products.insertCompanyName(paramData,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+exports.getAllHSNCodes= function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("innn");
+    var id = req.query.id;
+    service.products.getAllHSNCodes(id,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+
+exports.getAllCompanyName = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("innn");
+    var id = req.query.id;
+    service.products.getAllCompanyName(id,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+
+exports.getAllPacks = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("innn");
+    var id = req.query.id;
+    service.products.getAllPacks(id,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+
+exports.getAllProductGroup = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("innn");
+    var id = req.query.id;
+    service.products.getAllProductGroup(id,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
+        res.send(data);
+        next();
+    });
+}
+
+exports.getAllGst = function (req, res, next) {
+    //var userId = req.query.userId; //TODO : User id should be taken from token.
+    // var userId = "Nimble 2";
+      
+    console.log("innn");
+    var id = req.query.id;
+    service.products.getAllGst(id,function (err, data) {
+        console.log(err);
+        console.log(data);
+        if (err) return next(err, null);
+
+        
         res.send(data);
         next();
     });

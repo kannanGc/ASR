@@ -161,6 +161,14 @@ iframe {
   position: relative;
 }
 
+.wrap-login101 {
+  width: 726px;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+
 
 /*==================================================================
 [ Form ]*/
@@ -447,4 +455,9 @@ select{
     background: transparent;
     height: 62px;
     padding: 0 20px 0 38px;
+}
+
+.inputHolder{
+  width: 48%;
+  display: inline-block;
 }

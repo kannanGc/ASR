@@ -38,7 +38,7 @@
 
     });
 
-
+     
     $("#productCode").on('blur',function(){
        
       $.ajax({
@@ -59,49 +59,7 @@
 
     });
 
-    $('#submitAddProduct').on('click',function(){
-      var productName =   $("#productName").val();
-      var companyName =   $("#companyName").val(); 
-      var pack =   parseInt($("#pack").val());                
-      var productGroup =   parseInt($("#productGroup").val());
-      var gstType = parseInt($("#gstType").val());
-      var wholesaleRate =   parseInt($("#wholesaleRate").val());
-      var retailRate =  parseInt($("#retailRate").val());      
-      var alert =   parseInt($("#alert").val());
-      var jsonData = {
-        "productName":productName,
-        "companyName":companyName,
-        "productGroup":productGroup,
-        "pack":pack,
-        "gstType":gstType,
-        "wholesaleRate":wholesaleRate,
-        "retailRate":retailRate,
-        "alert":alert
-      };
-      console.log(jsonData);
-
-      $.ajax({
-      url: "http://localhost:8081/api/insertProduct",
-      type:"POST",
-         data: JSON.stringify(jsonData ),
-         contentType: "application/json",
-         cors: true,
-      success: function(resultData){
-      $.notify("Product added successfully", "success");
-        $("#productName").val("");
-        $("#companyName").val(""); 
-        $("#wholesaleRate").val("");
-        $("#retailRate").val("");
-        $("#alert").val("");
-      },
-      failure: function(resultData){
-        console.log(resultData) 
-      }
-
-      });
-
-
-    });
+    
 
 
 
@@ -126,6 +84,7 @@
         $("#productCode").val("");
         $("#productName").val("");
         $("#quantity").val(""); 
+         $("#noofstock").val(""); 
       },
       failure: function(resultData){
         console.log(resultData) 

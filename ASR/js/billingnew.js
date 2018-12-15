@@ -115,7 +115,7 @@ function generateBillAndUpdateStock(event){
 		localStorage['billJSON']	=  JSON.stringify(billJSON);
 		if(targetId == "quotation"){
 			
-			window.location = "/billinvoice.html?quotation=yes;"
+			window.location = "billinvoice.html?quotation=yes;"
 		}else{
 			$.ajax({
 		      url: "http://localhost:8081/api/generateBill",
@@ -130,9 +130,9 @@ function generateBillAndUpdateStock(event){
 				
 				
 				if(targetId == "taxinvoice")
-					window.location = "/billinvoice.html";
+					window.location = "billinvoice.html";
 				else
-					window.location = "/customerBill.html";
+					window.location = "customerBill.html";
 				
 
 		        
@@ -240,12 +240,18 @@ function associateEvents(){
 	$(".productname").bind("blur", function(){
 
   		var rowId = $(this).closest("tr").index();
+  		console.log(this.value)
+  		this.value = this.value.split(" ||")[0];
   		var productId = productIds[this.value];
+  		console.log(this.value)
+  		
+  		console.log(productId);	
   		updateRow(productId,rowId);
 	});	
 	$(".itemcode").bind("blur", function(){
   		var rowId = $(this).closest("tr").index();
   		var productId = this.value;
+
   		updateRow(productId,rowId);
 	});
 
@@ -498,7 +504,7 @@ $.getJSON( 'http://localhost:8081/api/getAllProductName', null,
         {
             $.each( jsonData, function ( index, product )
             {
-                productNames.push( product.product_name);
+                productNames.push( product.product_name + " || " + product.company_name);
                 productIds[product.product_name] = product.id;
             } );
             $('.typehead').unbind();

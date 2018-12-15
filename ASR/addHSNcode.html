@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- Header CSS --> 
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/header-basic-light.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- /Header CSS --> 
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/constants.js"></script>
+<script src="js/notify.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		      $(function(){ $("body").prepend(headerConstant); $(".addHSNcode").addClass('selected'); });
+
+	</script>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+					<span class="login100-form-title p-b-51">
+						Add New HSN CODE
+					</span>
+
+					<span class="labelInput">
+						HSN CODE:
+					</span><div class="wrap-input100 validate-input m-b-16"  data-validate = "data required">
+						<input id="hsncode" class="input100"  name="hsncode" placeholder="Please enter HSN CODE" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" id="submitHSNCode">
+							Add HSN CODE
+						</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+	  $('#submitHSNCode').on('click',function(){
+	      var hsncode =   $("#hsncode").val(); 
+	      var jsonData = {
+	        "hsnCode":hsncode
+	      };
+	      console.log(jsonData);
+
+	      $.ajax({
+	      url: "http://localhost:8081/api/insertHSNcode",
+	      type:"POST",
+	         data: JSON.stringify(jsonData ),
+	         contentType: "application/json",
+	         cors: true,
+	      success: function(resultData){
+	     	 $.notify("HSN CODE added successfully", "success");
+	        $("#hsncode").val("");
+	      },
+	      failure: function(resultData){
+	        console.log(resultData) 
+	      }
+     	 });
+	    });  
+	</script>
+	<!-- <script src="js/main.js"></script> -->
+	<!-- <script src="js/addproduct.js"></script> -->
+
+</body>
+</html>

@@ -3,6 +3,7 @@
 
 	var billJSON = JSON.parse(localStorage["billJSON"]);
 	var count = 1;
+	debugger;
 	for (var item in billJSON.items){	
 		$("#billBody").append("<tr>"+
 		"<td>"+count+"</td>"+
@@ -14,7 +15,11 @@
 		"<td>"+'Nos'+"</td>"+
 		"<td></td>"+
 		"<td>"+billJSON.items[item].total+"</td>"+
-		"</tr>")
+		"</tr>");
+
+		
+		
+
 		count++;
 	}
 

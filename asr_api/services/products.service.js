@@ -68,7 +68,6 @@ console.log("getAllProductName");
 
 
 
-
 exports.getAllBills = function (id, callback) {
 console.log("getAllBills");
 
@@ -98,10 +97,24 @@ console.log("insert product");
 
     asyncTasks.push(function (callback) {
         dao.products.insertProduct(paramData, function (err, data) {
+            console.log("insert product 3");
             if (err) return callback(true, null);
+            updatestockJSON =[{
+                "product_id":data[0],
+                "stock_present":paramData.noofstockin
+            }];
+            console.log("insert product 4");
             callback(false, data);
         })
     });
+
+    asyncTasks.push(function (data,callback) {
+        dao.products.updateStockDetails(updatestockJSON, function (err, data) {
+            console.log(err);
+            if (err) return callback(err, null);
+            callback(false, data);
+        })    
+    });       
 
     async.waterfall(asyncTasks, function (err, data) {
         if (err) return callback(err, data);
@@ -224,4 +237,139 @@ console.log(paramData);
         if (err) return callback(err, data);
         callback(false, data);
     });
+}
+
+
+exports.insertHSNCode = function (paramData, callback) {
+console.log("insertHSNCode");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.insertHSNCode(paramData, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+
+exports.insertCompanyName = function (paramData, callback) {
+console.log("insertCompanyName");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.insertCompanyName(paramData, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+exports.getAllHSNCodes = function (id, callback) {
+console.log("getAllHSNCodes");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.getAllHSNCodes(id, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+exports.getAllCompanyName = function (id, callback) {
+console.log("getAllBills");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.getAllCompanyName(id, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+exports.getAllPacks = function (id, callback) {
+console.log("getAllPacks");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.getAllPacks(id, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+exports.getAllProductGroup = function (id, callback) {
+console.log("getAllProductGroup");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.getAllProductGroup(id, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
+}
+
+exports.getAllGst = function (id, callback) {
+console.log("getAllGst");
+
+    var asyncTasks = [];
+
+    asyncTasks.push(function (callback) {
+        dao.products.getAllGst(id, function (err, data) {
+            if (err) return callback(true, null);
+            callback(false, data);
+        })
+    });
+
+    async.waterfall(asyncTasks, function (err, data) {
+        if (err) return callback(err, data);
+        callback(false, data);
+    });
+    
 }

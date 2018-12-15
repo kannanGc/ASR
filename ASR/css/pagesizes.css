@@ -1,39 +1,20 @@
  body {
+  /*background: rgb(204,204,204); */
+}
+body {
   background: rgb(204,204,204); 
 }
-page {
-  background: white;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-}
-page[size="A4"] {  
-  width: 21cm;
-  height: 29.7cm; 
-}
-page[size="A4"][layout="landscape"] {
-  width: 29.7cm;
-  height: 21cm;  
-}
-page[size="A3"] {
-  width: 29.7cm;
-  height: 42cm;
-}
-page[size="A3"][layout="landscape"] {
-  width: 42cm;
-  height: 29.7cm;  
-}
-page[size="A5"] {
-  width: 14.8cm;
-  height: 21cm;
-}
-page[size="A5"][layout="landscape"] {
-  width: 21cm;
-  height: 14.8cm;  
+page[size="A4"] {
+background: white;
+    width: 26cm;
+    height: 29.7cm;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
 }
 @media print {
-  body, page {
+  body, page[size="A4"] {
     margin: 0;
     box-shadow: 0;
   }
@@ -49,7 +30,7 @@ page[size="A5"][layout="landscape"] {
     position: relative;;
 }
 #leftbox{
- width: 372px;
+ width: 460px;
     border: 1px solid black;
     height: 290px;
     position: absolute;
@@ -57,20 +38,24 @@ page[size="A5"][layout="landscape"] {
     left: 14px;
 }
 #rightbox{
-    width: 372px;
+    width: 460px; 
     border: 1px solid black;
     height: 290px;
     position: absolute;
     top: 75px;
-    left: 405px;
+   left: 498px;
 }
 #detailsbox{
-  width: 761px;
+  width: 945px;
   border: 1px solid black;
     height: 400px;
     top: 379px;
     position: absolute;
     left: 16px;
+}
+
+#detailsbox table{
+      width: 100%;
 }
 #detailsboxCustomer{
   width: 761px;
@@ -163,16 +148,16 @@ border-right: 1px solid black;
     border-right: 1px solid black;
 }
 .line1{
-  left: 45px
+  left: 59px
 }
 .line2  {
-  left: 359px
+  left: 381px;
 }
 .line3  {
-  left: 433px
+  left: 484px;
 }
 .line4  {
-  left: 517px
+  left: 601px;
 }
 .line5 {
   left: 576px;

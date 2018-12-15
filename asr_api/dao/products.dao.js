@@ -2,11 +2,13 @@ var model = require('../models');
 
 exports.getAllProducts = function (id, callback) {
 
-    var query = model.knex('products').select('products.id','products.product_name','products.company_name','packs.pack_name','product_groups.product_group_name','gst_types.gst_type','packs.pack_name','products.wholesale_rate','products.retail_rate','products.alert','stock_details.stock_present')
+    var query = model.knex('products').select('products.id','products.product_name','companies.company_name','hsn_codes.hsn_code','product_groups.product_group_name','gst_types.gst_type','packs.pack_name','products.wholesale_rate','products.retail_rate','products.alert','stock_details.stock_present')
     .innerJoin('packs', 'packs.id', 'products.pack_id')
     .innerJoin('stock_details', 'stock_details.product_id', 'products.id')
     .innerJoin('product_groups', 'product_groups.id', 'products.product_group_id')
     .innerJoin('gst_types','gst_types.id','products.gst_type_id')
+    .innerJoin('hsn_codes','hsn_codes.id','products.hsn_code')
+    .innerJoin('companies','companies.id','products.company_name_id')
 
     if (typeof id != 'undefined') {
         query = query.where('products.id', id);
@@ -70,9 +72,9 @@ exports.insertProduct = function (paramData, callback) {
 		
 		model.knex('products')
         .insert({
-
+         hsn_code: paramData.hsnCode,   
          product_name: paramData.productName,
-         company_name: paramData.companyName,
+         company_name_id: paramData.companyName,
          pack_id: paramData.pack,
          product_group_id: paramData.productGroup,
          gst_type_id: paramData.gstType,
@@ -84,9 +86,13 @@ exports.insertProduct = function (paramData, callback) {
          })
         .returning('id')
         .then(function (data) {
+            console.log('data');
+            console.log(data);
             callback(null, data);
         })
         .catch(function (err) {
+            console.log('err');
+            console.log(err);
             return callback(err, false);
         })
         .finally(function () {
@@ -186,5 +192,129 @@ exports.insertBillDetails = function (billData, callback) {
             //TODO : close connections if any
         });
  }
+exports.insertHSNCode = function (paramData, callback) {
+        model.knex('hsn_codes')
+        .insert({
+         hsn_code: paramData.hsnCode
+         })
+        .returning('id')
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
 
+}
+
+exports.insertCompanyName = function (paramData, callback) {
+        model.knex('companies')
+        .insert({
+         company_name: paramData.companyName
+         })
+        .returning('id')
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+
+}
+exports.getAllHSNCodes = function (id, callback) {
+
+    var query = model.knex('hsn_codes')
+    if (typeof id != 'undefined') {
+        query = query.where('id', id);
+    }
+    console.log(query.toSQL());
+    query
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+}
  
+exports.getAllCompanyName = function (id, callback) {
+
+    var query = model.knex('companies')
+    if (typeof id != 'undefined') {
+        query = query.where('id', id);
+    }
+    console.log(query.toSQL());
+    query
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+}
+exports.getAllPacks = function (id, callback) {
+
+    var query = model.knex('packs')
+    if (typeof id != 'undefined') {
+        query = query.where('id', id);
+    }
+    console.log(query.toSQL());
+    query
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+}
+exports.getAllProductGroup = function (id, callback) {
+
+    var query = model.knex('product_groups')
+    if (typeof id != 'undefined') {
+        query = query.where('id', id);
+    }
+    console.log(query.toSQL());
+    query
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+}
+exports.getAllGst = function (id, callback) {
+
+    var query = model.knex('gst_types')
+    if (typeof id != 'undefined') {
+        query = query.where('id', id);
+    }
+    console.log(query.toSQL());
+    query
+        .then(function (data) {
+            callback(null, data);
+        })
+        .catch(function (err) {
+            return callback(err, false);
+        })
+        .finally(function () {
+            //TODO : close connections if any
+        });
+}
